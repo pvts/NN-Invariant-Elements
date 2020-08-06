@@ -1,3 +1,3 @@
-# NN-Invariant_Elements
+# NN-Invariant-Elements
 
 To be updated
