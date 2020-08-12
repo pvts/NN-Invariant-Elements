@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-
 #Importing the libraries
 import numpy as np
 import tensorflow as tf
