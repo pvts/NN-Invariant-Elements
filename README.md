@@ -8,7 +8,7 @@ Image Transformations that our models' robustness has been tested against:
 - horizontal & vertical flipping
 - shear
 
-All images have had their size increased to 56 x 56 size. We achieved that by extending the background size of the images by filling the empty space with zeros. This approach allows  for  different  positional  observations  without  the  objects,  or  any part of them, being moved outside of the boundaries of the image.
+All images have had their size increased to 56 x 56 size. We achieved this by extending the background size of the images by filling the empty space with zeros. This approach allows  for  different  positional  observations  without  the  objects,  or  any part of them, being moved outside of the boundaries of the image.
 
 7 different models have been used, specifically;
 - Multilayer Perceptron (MLP) - used as the baseline model
