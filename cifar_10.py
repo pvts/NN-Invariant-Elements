@@ -21,7 +21,7 @@ np.random.seed(42)
 tf.random.set_seed(42)
 
 #setting the directory path
-Dir = '/content/drive/My Drive/Thesis/models_cifar'
+Dir = '/content/drive/My Drive/models_cifar'
 
 """## Preprocessing"""
 
