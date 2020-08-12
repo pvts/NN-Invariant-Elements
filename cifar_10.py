@@ -386,58 +386,58 @@ history_mlp = model_mlp.fit(X_train, y_train_cat, epochs=10, batch_size=128,
                             callbacks=checkpoint)
 
 #CNN Model
-"""checkpoint = ModelCheckpoint(filepath='cnn.model.hdf5', verbose=1, 
-                             save_best_only=True)"""
+checkpoint = ModelCheckpoint(filepath='cnn.model.hdf5', verbose=1, 
+                             save_best_only=True)
 
 model_cnn = build_cnn_model()
-"""history_cnn = model_cnn.fit(X_train, y_train_cat, epochs=10, batch_size=128, 
+history_cnn = model_cnn.fit(X_train, y_train_cat, epochs=10, batch_size=128, 
                             verbose=1, validation_split=0.1, 
-                            callbacks=checkpoint)"""
+                            callbacks=checkpoint)
 
 #CNN + MaxPooling Model
-"""checkpoint = ModelCheckpoint(filepath='cnn_mp.model.hdf5', verbose=1, 
-                             save_best_only=True)"""
+checkpoint = ModelCheckpoint(filepath='cnn_mp.model.hdf5', verbose=1, 
+                             save_best_only=True)
 
 model_cnn_mp = build_cnn_mp_model()
-"""history_cnn_mp = model_cnn_mp.fit(X_train, y_train_cat, epochs=10, 
+history_cnn_mp = model_cnn_mp.fit(X_train, y_train_cat, epochs=10, 
                                   batch_size=128, verbose=1, 
-                                  validation_split=0.1, callbacks=checkpoint)"""
+                                  validation_split=0.1, callbacks=checkpoint)
 
 #CNN + AveragePooling Model
-"""checkpoint = ModelCheckpoint(filepath='cnn_ap.model.hdf5', verbose=1, 
-                             save_best_only=True)"""
+checkpoint = ModelCheckpoint(filepath='cnn_ap.model.hdf5', verbose=1, 
+                             save_best_only=True)
 
 model_cnn_ap = build_cnn_ap_model()
-"""history_cnn_ap = model_cnn_ap.fit(X_train, y_train_cat, epochs=10, 
+history_cnn_ap = model_cnn_ap.fit(X_train, y_train_cat, epochs=10, 
                                   batch_size=128, verbose=1, 
-                                  validation_split=0.1, callbacks=checkpoint)"""
+                                  validation_split=0.1, callbacks=checkpoint)
 
 #CNN + Dropout Model
-"""checkpoint = ModelCheckpoint(filepath='cnn_do.model.hdf5', verbose=1, 
-                             save_best_only=True)"""
+checkpoint = ModelCheckpoint(filepath='cnn_do.model.hdf5', verbose=1, 
+                             save_best_only=True)
 
 model_cnn_do = build_cnn_do_model()
-"""history_cnn_do = model_cnn_do.fit(X_train, y_train_cat, epochs=10, 
+history_cnn_do = model_cnn_do.fit(X_train, y_train_cat, epochs=10, 
                                   batch_size=128, verbose=1, 
-                                  validation_split=0.3, callbacks=checkpoint)"""
+                                  validation_split=0.3, callbacks=checkpoint)
 
 #CNN + GlobalMaxPooling
-"""checkpoint = ModelCheckpoint(filepath='cnn_globalmp.model.hdf5', verbose=1, 
-                             save_best_only=True)"""
+checkpoint = ModelCheckpoint(filepath='cnn_globalmp.model.hdf5', verbose=1, 
+                             save_best_only=True)
 
 model_cnn_global_mp = build_cnn_globalmp_model()
-"""history_global_mp = model_cnn_global_mp.fit(X_train, y_train_cat, epochs=10, 
+history_global_mp = model_cnn_global_mp.fit(X_train, y_train_cat, epochs=10, 
                                   batch_size=128, verbose=1, 
-                                  validation_split=0.1, callbacks=checkpoint)"""
+                                  validation_split=0.1, callbacks=checkpoint)
 
 #CNN + GlobalAveragePooling 
-"""checkpoint = ModelCheckpoint(filepath='cnn_globalap.model.hdf5', verbose=1, 
-                             save_best_only=True)"""
+checkpoint = ModelCheckpoint(filepath='cnn_globalap.model.hdf5', verbose=1, 
+                             save_best_only=True)
 
 model_cnn_global_ap = build_cnn_globalap_model()
-"""history_global_ap = model_cnn_global_ap.fit(X_train, y_train_cat, epochs=10, 
+history_global_ap = model_cnn_global_ap.fit(X_train, y_train_cat, epochs=10, 
                                   batch_size=128, verbose=1, 
-                                  validation_split=0.1, callbacks=checkpoint)"""
+                                  validation_split=0.1, callbacks=checkpoint)
 
 """## Results"""
 
@@ -598,7 +598,7 @@ score_fifth_tr_cnnmp = model_cnn_mp.evaluate(test_fifth_translation, y_test_cat,
 
 #First Rotation CNN MP Model
 score_frotation_cnnmp = model_cnn_mp.evaluate(test_first_rotation, y_test_cat, 
-                                           verbose=0)
+                                              verbose=0)
 
 #Second Rotation CNN MP Model
 score_srotation_cnnmp = model_cnn_mp.evaluate(test_second_rotation, y_test_cat, 
@@ -610,7 +610,7 @@ score_trotation_cnnmp = model_cnn_mp.evaluate(test_third_rotation, y_test_cat,
 
 #Fourth Rotation CNN MP Model
 score_ftrotation_cnnmp = model_cnn_mp.evaluate(test_fourth_rotation, y_test_cat, 
-                                            verbose=0)
+                                               verbose=0)
 
 #Vertically Flipped MaxPooling Model
 score_vflp_mp = model_cnn_mp.evaluate(X_test_vflipped, y_test_cat, verbose=0)
