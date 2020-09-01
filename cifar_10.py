@@ -93,46 +93,21 @@ test_second_rotation = rotation(40, X_test)
 test_third_rotation = rotation(60, X_test)
 test_fourth_rotation = rotation(90, X_test)
 
-#small translation - down right - (1)
-translation_matrix = np.float32([ [1,0,1], [0,1,1] ])
-width, height = X_train[0].shape[:2]
-
-test_first_translation = np.zeros(X_test.shape)
-for index, y in enumerate(X_test):
-    test_first_translation[index] = cv2.warpAffine(y, translation_matrix, 
-                                                   (width, height))
-
-#small translation - down right - (2)
-translation_matrix = np.float32([ [1,0,2], [0,1,2] ])
-test_second_translation = np.zeros(X_test.shape)
-
-for index, y in enumerate(X_test):
-    test_second_translation[index] = cv2.warpAffine(y, translation_matrix, 
-                                                   (width, height))
-
-#medium translation - down right - (4)
-translation_matrix = np.float32([ [1,0,4], [0,1,4] ])
-test_third_translation = np.zeros(X_test.shape)
-
-for index, y in enumerate(X_test):
-    test_third_translation[index] = cv2.warpAffine(y, translation_matrix, 
-                                                   (width, height))
-
-#medium translation - down right - (8)
-translation_matrix = np.float32([ [1,0,8], [0,1,8] ])
-test_fourth_translation = np.zeros(X_test.shape)
-
-for index, y in enumerate(X_test):
-    test_fourth_translation[index] = cv2.warpAffine(y, translation_matrix, 
-                                                    (width, height))
-
-#large translation - down right edge - (14)
-translation_matrix = np.float32([ [1,0,14], [0,1,14] ])
-test_fifth_translation = np.zeros(X_test.shape)
-
-for index, y in enumerate(X_test):
-    test_fifth_translation[index] = cv2.warpAffine(y, translation_matrix, 
-                                                  (width, height))
+#function to set translation levels
+def translation(dim, test_set, train_set):
+  translation_matrix = np.float32(dim)
+  width, height = train_set[0].shape[:2]
+  test_translation = np.zeros(test_set.shape)
+  for index, y in enumerate(test_set):
+    test_translation[index] = cv2.warpAffine(y, translation_matrix, 
+                                             (width, height))
+  return test_translation
+    
+test_first_translation = translation([[1,0,1], [0,1,1]], X_test, X_train)
+test_second_translation = translation([ [1,0,2], [0,1,2] ], X_test, X_train)
+test_third_translation = translation([ [1,0,4], [0,1,4] ], X_test, X_train)
+test_fourth_translation = translation([ [1,0,8], [0,1,8] ], X_test, X_train)
+test_fifth_translation = translation([ [1,0,14], [0,1,14] ], X_test, X_train)
 
 #Vertically flipping all the images in the test set
 X_test_vflipped = np.zeros_like(X_test)
