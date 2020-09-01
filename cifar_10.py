@@ -69,50 +69,29 @@ for i, index in enumerate(np.random.choice(X_test.shape[0], size=12,
 
 """## Image Transformations"""
 
-#Shearing (0.2)
-afine_tf = AffineTransform(shear=0.2)
+#function to change the magnitude of shear
+def shear(magnitude, test_set):
+  afine_tf = AffineTransform(shear=magnitude)
+  test_shear = np.zeros(test_set.shape)
+  for index, y in enumerate(test_set):
+    test_shear[index] = warp(y, inverse_map=afine_tf)
+  return test_shear
 
-test_first_shear = np.zeros(X_test.shape)
-for index, y in enumerate(X_test):
-  test_first_shear[index] = warp(y, inverse_map=afine_tf)
+test_first_shear = shear(0.2, X_test)
+test_second_shear = shear(0.35, X_test)
+test_third_shear = shear(0.5, X_test)
 
-#Shearing (0.35)
-afine_tf = AffineTransform(shear=0.35)
+#function to change the magnitude of rotation
+def rotation(magnitude, test_set):
+  test_rotation = np.zeros(test_set.shape)
+  for index, y in enumerate(test_set):
+     test_rotation[index] = rotate(y, magnitude)
+  return test_rotation
 
-test_second_shear = np.zeros(X_test.shape)
-for index, y in enumerate(X_test):
-  test_second_shear[index] = warp(y, inverse_map=afine_tf)
-
-#Shearing (0.5)
-afine_tf = AffineTransform(shear=0.5)
-
-test_third_shear = np.zeros(X_test.shape)
-for index, y in enumerate(X_test):
-  test_third_shear[index] = warp(y, inverse_map=afine_tf)
-
-#Rotating the image (20)
-test_first_rotation = np.zeros(X_test.shape)
-
-for index, y in enumerate(X_test):
-  test_first_rotation[index] = rotate(y, 20) 
-
-#Rotating the image (40)
-test_second_rotation = np.zeros(X_test.shape)
-
-for index, y in enumerate(X_test):
-  test_second_rotation[index] = rotate(y, 40) 
-
-#Rotating the image (60)
-test_third_rotation = np.zeros(X_test.shape)
-
-for index, y in enumerate(X_test):
-  test_third_rotation[index] = rotate(y, 60) 
-
-#Rotating the image (90)
-test_fourth_rotation = np.zeros(X_test.shape)
-
-for index, y in enumerate(X_test):
-  test_fourth_rotation[index] = rotate(y, 90)
+test_first_rotation = rotation(20, X_test)
+test_second_rotation = rotation(40, X_test)
+test_third_rotation = rotation(60, X_test)
+test_fourth_rotation = rotation(90, X_test)
 
 #small translation - down right - (1)
 translation_matrix = np.float32([ [1,0,1], [0,1,1] ])
