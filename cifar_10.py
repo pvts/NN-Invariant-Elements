@@ -1093,7 +1093,7 @@ accuracies_flip_cnn_gmp = [round(i[1] * 100, 3) for i in (score_hflp_global_mp,
 accuracies_flip_cnn_gap = [round(i[1] * 100, 3) for i in (score_hflp_global_ap, 
                                                           score_vflp_global_ap)]
 
-#Shearing Plots
+#Flip Plots
 fig=plt.figure(figsize=(7,5))
 ax=fig.add_subplot(111)
 plt.grid(linestyle=':')
